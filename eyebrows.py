@@ -342,6 +342,8 @@ if __name__ == '__main__':
                 self.image = Razor.image_down
 
             if pygame.sprite.spritecollide(self, player_group, dokill=False):
+                global click
+                click = False
                 Heart.count_life -= 1
                 kill_player(Heart.count_life)
                 player.kill_and_change_cod()
@@ -368,6 +370,8 @@ if __name__ == '__main__':
             else:
                 self.image = HairClip.image_right
             if pygame.sprite.spritecollide(self, player_group, dokill=False):
+                global click
+                click = False
                 Heart.count_life -= 1
                 kill_player(Heart.count_life)
                 player.kill_and_change_cod()
@@ -406,7 +410,6 @@ if __name__ == '__main__':
 
             self.anim_count = 0
             self.speed = 5
-
 
         def update(self, event):
             global collect_balls

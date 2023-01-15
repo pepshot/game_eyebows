@@ -29,14 +29,13 @@ def start_screen():
     intro_text = ['Игра "В поисках bровей".',
                   'Чтоbы пройти игру вам нужно пройти 3 уровня.',
                   "В третьем уровне используйте свою смекалку.",
-                  'Для управлением ходьbы Серёжи нужно использовать',
-                  '"<=" - влево; "=>" - вправо; "v" - вниз; "^" - вверх.',
+                  'Перед началом игры прочтите файл "read_me_before_play"',
                   'Чтобы начать игру нажмите на Space.']
 
     fon = pygame.transform.scale(load_image('start_background.png'), (width, height))
     screen.blit(fon, (0, 0))
     font = pygame.font.Font(None, 36)
-    text_coord = 540
+    text_coord = 570
     for line in intro_text:
         string_rendered = font.render(line, 1, pygame.Color('white'))
         intro_rect = string_rendered.get_rect()

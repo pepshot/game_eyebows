@@ -220,6 +220,9 @@ if __name__ == '__main__':
     size = width, height = 750, 750
     screen = pygame.display.set_mode(size)
     pygame.display.set_caption('В поисках бровей')
+    pygame.mixer.music.load('Сережа.mp3')
+    pygame.mixer.music.play(-1)
+    pygame.mixer.music.set_volume(0.01)
 
     def generate_level(level):
         new_player, x, y = None, None, None

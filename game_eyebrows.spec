@@ -8,7 +8,7 @@ a = Analysis(
     ['game_eyebrows.py'],
     pathex=[],
     binaries=[],
-    datas=[],
+    datas=[('Сережа.mp3', '.')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

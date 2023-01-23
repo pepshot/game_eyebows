@@ -551,7 +551,7 @@ if __name__ == '__main__':
                     last_event = event
 
             if event.type == pygame.KEYUP:
-                #бытсрая победа
+                #быстрая победа
                 '''if event.key == pygame.K_w:
                     win_screen(3, 3, 13 * 30)
                     kill_sprites(all_sprites)

@@ -219,10 +219,12 @@ if __name__ == '__main__':
     pygame.init()
     size = width, height = 750, 750
     screen = pygame.display.set_mode(size)
+
     pygame.display.set_caption('В поисках бровей')
-    pygame.mixer.music.load('Сережа.mp3')
+    pygame.mixer.music.load('data/Сережа.mp3')
     pygame.mixer.music.play(-1)
-    pygame.mixer.music.set_volume(0.01)
+    vol = 0.01
+    pygame.mixer.music.set_volume(vol)
 
     def generate_level(level):
         new_player, x, y = None, None, None
@@ -533,6 +535,7 @@ if __name__ == '__main__':
         'empty': load_image('empty.png')}
     running = True
     click = False
+    click_mouse = 0
 
     fps = 60
     clock = pygame.time.Clock()
@@ -546,6 +549,14 @@ if __name__ == '__main__':
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click_mouse = -1
+                elif event.button == 3:
+                    click_mouse = 1
+
+            if event.type == pygame.MOUSEBUTTONUP:
+                click_mouse = 0
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP or event.key == pygame.K_DOWN\
@@ -573,6 +584,11 @@ if __name__ == '__main__':
             if last_event.key == pygame.K_UP or last_event.key == pygame.K_DOWN \
                     or last_event.key == pygame.K_LEFT or last_event.key == pygame.K_RIGHT:
                 player.update(last_event)
+
+        if click_mouse != 0:
+            vol += click_mouse / 100
+            pygame.mixer.music.set_volume(vol)
+            print(vol)
 
         kill_group.update()
         pygame.time.delay(50)
